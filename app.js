@@ -82,28 +82,3 @@ for(let i = 0; i < input_fields.length; i++){
  window.addEventListener('load', () =>{
     TL1.play();
  })
-
- // Animation ScrollMagic GSAP presentation
-
- const prestationContainer = document.querySelector('.presentation')
- const titrePres = document.querySelector('.titre-pres')
- const presGauche = document.querySelector('.pres-gauche')
- const listePres = document.querySelectorAll('.item-liste')
-
- const tlpres = new TimelineMax();
-
- tlpres
- .from(titrePres, {y: -200, opacity: 0,ease: Power3.easeOut, duration: 0.6})
- .from(presGauche, {y: -20, opacity: 0, duration: 0.6}, '-=0.5')
- .staggeFrom(listePres, 1, {opacity: 0}, 0.2, '-=0.5')
-
- const controller = new ScrollMagic.Controller();
-
- const scene = new ScrollMagic.Scene({
-    triggerElement: prestationContainer,
-    triggerHook: 0.1,
-    reverse: false
- })
- .setTween(tlpres)
- .addIndicator()
- .addTo(controller)
